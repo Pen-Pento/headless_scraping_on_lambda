@@ -1,0 +1,17 @@
+from selenium import webdriver
+
+def lambda_handler(event, contxt):
+    options = webdriver.ChromeOptions()
+    options.binary_location = "./bin/headless-chromium"
+    options.add_argument("--headless")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--single-process")
+
+    driver = webdriver.Chrome(
+        executable_path="./bin/chromedriver",
+        chrome_options=options
+    )
+
+    driver.get("https://www.google.co.jp")
+
+    return driver.title
