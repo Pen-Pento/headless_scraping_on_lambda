@@ -17,6 +17,8 @@ def lambda_handler(event, contxt):
     options.add_argument("--single-process")
     options.add_argument('--disable-dev-shm-usage')
     options.add_argument('--window-size=1200,2000')
+    options.add_argument('--blink-settings=imagesEnabled=false')
+
 
     driver = webdriver.Chrome(
         executable_path="./bin/chromedriver",
